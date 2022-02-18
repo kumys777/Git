@@ -1,4 +1,5 @@
 import pygame
+from random import randint
 
 if __name__ == '__main__':
     pygame.init()
@@ -18,8 +19,11 @@ if __name__ == '__main__':
                 pos = event.pos
                 st = 0
                 st2 = 0
+                a1 = randint(0, 255)
+                a2 = randint(0, 255)
+                a3 = randint(0, 255)
         while st2 != 1:
-            pygame.draw.circle(screen, (255, 255, 0), pos, st)
+            pygame.draw.circle(screen, (a1, a2, a3), pos, st)
             pygame.display.flip()
             st += 10
             clock.tick(fps)
@@ -32,4 +36,7 @@ if __name__ == '__main__':
                     pos = event.pos
                     st = 0
                     screen.fill(pygame.Color('blue'))
+                    a1 = randint(0, 255)
+                    a2 = randint(0, 255)
+                    a3 = randint(0, 255)
     pygame.quit()
