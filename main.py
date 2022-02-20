@@ -11,6 +11,7 @@ class DBSample(QMainWindow):
         uic.loadUi('UI1.ui', self)
         self.connection = sqlite3.connect("cofe_db.sqlite")
         self.select_data()
+        self.pushButton.clicked.connect(self.f)
 
     def select_data(self):
         query = f"SELECT * FROM cofe WHERE id "
@@ -18,7 +19,7 @@ class DBSample(QMainWindow):
         res = cur.execute(query).fetchall()
         print(res)
         # Заполним размеры таблицы
-        self.tableWidget.setColumnCount(5)
+        self.tableWidget.setColumnCount(7)
         self.tableWidget.setRowCount(0)
         # Заполняем таблицу элементами
         for i, row in enumerate(res):
@@ -32,6 +33,9 @@ class DBSample(QMainWindow):
         # При закрытии формы закроем и наше соединение
         # с базой данных
         self.connection.close()
+
+    def f(self):
+        return
 
 
 if __name__ == '__main__':
